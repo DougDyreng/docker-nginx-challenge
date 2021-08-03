@@ -1,0 +1,15 @@
+server {
+    listen 3400;
+    listen [::]:3400;
+
+    root /var/www/localhost/html;
+    index index.html;
+    error_page 404 /404.html;
+
+    server_name localhost;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+

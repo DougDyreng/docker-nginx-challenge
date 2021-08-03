@@ -1,0 +1,18 @@
+server {
+    listen 3200 default_server;
+    listen [::]:3200 default_server;
+    server_name _;
+
+    root /var/www/error;
+    error_page 404 /404.html;
+
+    location / {
+        return 404;
+    }
+
+    # Avoid Recursion!
+    location = /404.html {
+        internal;
+    }
+  
+  }
